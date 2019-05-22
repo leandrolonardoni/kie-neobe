@@ -50,4 +50,5 @@ USER jboss
 
 ####### RUNNING KIE-SERVER ############
 WORKDIR $JBOSS_HOME/bin/
+RUN ["chmod", "+x", "./start_kie-server.sh"]
 CMD ["./start_kie-server.sh"]
