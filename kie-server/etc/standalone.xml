@@ -331,21 +331,7 @@
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:resource-adapters:4.0"/>
         <subsystem xmlns="urn:jboss:domain:request-controller:1.0"/>
-        <subsystem xmlns="urn:jboss:domain:sar:1.0"/>
-		<subsystem xmlns="urn:jboss:domain:keycloak:1.1">
-			<realm name="REALM_NAME">
-				<auth-server-url>AUTH_SERVER_URL</auth-server-url>
-				<ssl-required>none</ssl-required>
-				<realm-public-key>REALM_PUBLIC_KEY</realm-public-key>
-			</realm>
-		  <secure-deployment name="kie-server.war">
-			<realm>REALM_NAME</realm>
-			<resource>kie-server</resource>
-			<enable-basic-auth>true</enable-basic-auth>
-			<credential name="secret">SECRET_CREDENCIAL</credential>
-			<principal-attribute>preferred_username</principal-attribute>
-		  </secure-deployment>	  
-		</subsystem>			
+        <subsystem xmlns="urn:jboss:domain:sar:1.0"/>	
         <subsystem xmlns="urn:jboss:domain:security-manager:1.0">
             <deployment-permissions>
                 <maximum-set>
