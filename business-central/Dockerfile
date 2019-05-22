@@ -6,7 +6,7 @@
 FROM jboss/jbpm-workbench:7.14.0.Final
 
 ####### MAINTAINER ############
-MAINTAINER "Leandro Alberto Lonardoni"
+MAINTAINER " Leandro Alberto Lonardoni "
 
 ####### ENVIRONMENT ############
 # Use demo and examples by default in this showcase image (internet connection required).
