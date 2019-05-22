@@ -28,8 +28,6 @@ RUN chown jboss:jboss $JBOSS_HOME/bin/start_jbpm-wb.sh
 RUN chown jboss:jboss $JBOSS_HOME/standalone/configuration/application-users.properties && \
 chown jboss:jboss $JBOSS_HOME/standalone/configuration/application-roles.properties
 RUN chmod +x $JBOSS_HOME/bin/start_jbpm-wb.sh
-RUN chmod 755 $JBOSS_HOME/bin/start_jbpm-wb.sh
-RUN chmod a+x $JBOSS_HOME/bin/*
 
 # Switchback to jboss user
 USER jboss
@@ -38,6 +36,4 @@ rm -rf $JBOSS_HOME/standalone/configuration/standalone_xml_history/current
 
 ####### RUNNING JBPM-WB ############
 WORKDIR $JBOSS_HOME/bin/
-RUN chmod +x ./start_jbpm-wb.sh
-RUN chmod 755 ./start_jbpm-wb.sh
-ENTRYPOINT ["./start_jbpm-wb.sh"]
+CMD ["./start_jbpm-wb.sh"]

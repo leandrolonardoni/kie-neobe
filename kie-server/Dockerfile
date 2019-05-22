@@ -44,8 +44,6 @@ chown jboss:jboss $JBOSS_HOME/bin/update_db_config.sh && \
 chown jboss:jboss $JBOSS_HOME/bin/start_kie-server.sh && \
 chown jboss:jboss $JBOSS_HOME/../.m2/settings.xml
 RUN chmod +x $JBOSS_HOME/bin/start_kie-server.sh
-RUN chmod 755 $JBOSS_HOME/bin/start_kie-server.sh
-RUN chmod a+x $JBOSS_HOME/bin/*
 
 ####### JBOSS USER ############
 # Switchback to jboss user
@@ -53,6 +51,4 @@ USER jboss
 
 ####### RUNNING KIE-SERVER ############
 WORKDIR $JBOSS_HOME/bin/
-RUN chmod +x ./start_kie-server.sh
-RUN chmod 755 ./start_kie-server.sh
-ENTRYPOINT ["./start_kie-server.sh"]
+CMD ["./start_kie-server.sh"]
