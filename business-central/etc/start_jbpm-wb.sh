@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Start Wildfly with the given arguments.
 echo "Update database connection setup"
