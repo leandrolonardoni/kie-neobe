@@ -36,7 +36,6 @@
         <extension module="org.wildfly.extension.security.manager"/>
         <extension module="org.wildfly.extension.undertow"/>
         <extension module="org.wildfly.iiop-openjdk"/>
-		<extension module="org.keycloak.keycloak-adapter-subsystem"/>
     </extensions>
     <management>
         <security-realms>
@@ -359,12 +358,7 @@
                     <authorization>
                         <policy-module code="Delegating" flag="required"/>
                     </authorization>
-                </security-domain>
-                <security-domain name="keycloak">
-                    <authentication>
-                        <login-module code="org.keycloak.adapters.jboss.KeycloakLoginModule" flag="required"/>
-                    </authentication>
-                </security-domain>					
+                </security-domain>			
                 <security-domain name="jaspitest" cache-type="default">
                     <authentication-jaspi>
                         <login-module-stack name="dummy">
