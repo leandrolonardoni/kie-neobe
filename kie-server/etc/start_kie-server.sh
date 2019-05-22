@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # If not server identifier set via docker env variable, use the container's hostname as server id.
 if [ ! -n "$KIE_SERVER_ID" ]; then
