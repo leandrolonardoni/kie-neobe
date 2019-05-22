@@ -43,6 +43,7 @@ chown jboss:jboss $JBOSS_HOME/standalone/configuration/kie-server-roles.properti
 chown jboss:jboss $JBOSS_HOME/bin/update_db_config.sh && \
 chown jboss:jboss $JBOSS_HOME/bin/start_kie-server.sh && \
 chown jboss:jboss $JBOSS_HOME/../.m2/settings.xml
+RUN chmod +x $JBOSS_HOME/bin/start_kie-server.sh
 
 ####### JBOSS USER ############
 # Switchback to jboss user

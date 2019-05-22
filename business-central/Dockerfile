@@ -27,6 +27,7 @@ COPY etc/add-ons/ $JBOSS_HOME/modules/system/add-ons/
 RUN chown jboss:jboss $JBOSS_HOME/bin/start_jbpm-wb.sh
 RUN chown jboss:jboss $JBOSS_HOME/standalone/configuration/application-users.properties && \
 chown jboss:jboss $JBOSS_HOME/standalone/configuration/application-roles.properties
+RUN chmod +x $JBOSS_HOME/bin/start_jbpm-wb.sh
 
 # Switchback to jboss user
 USER jboss
