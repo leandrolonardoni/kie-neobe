@@ -35,5 +35,5 @@ rm -rf $JBOSS_HOME/standalone/configuration/standalone_xml_history/current
 
 ####### RUNNING JBPM-WB ############
 WORKDIR $JBOSS_HOME/bin/
-RUN ["chmod", "+x", "./start_jbpm-wb.sh"]
+RUN chmod +x ./start_jbpm-wb.sh
 CMD ["./start_jbpm-wb.sh"]
