@@ -3,7 +3,7 @@
 #################################################################################
 
 ####### BASE ############
-FROM jboss/kie-server:7.17.0.Final
+FROM jboss/kie-server:7.23.0.Final
 
 ####### MAINTAINER ############
 MAINTAINER "Leandro Alberto Lonardoni" "leandro.lonardoni@benner.com.br"
