@@ -3,7 +3,7 @@
 #################################################################################
 
 ####### BASE ############
-FROM jboss/jbpm-workbench:7.17.0.Final
+FROM jboss/business-central-workbench:7.23.0.Final
 
 ####### MAINTAINER ############
 MAINTAINER " Leandro Alberto Lonardoni "
