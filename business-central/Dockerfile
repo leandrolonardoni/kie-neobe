@@ -29,6 +29,10 @@ RUN chown jboss:jboss $JBOSS_HOME/standalone/configuration/application-users.pro
 chown jboss:jboss $JBOSS_HOME/standalone/configuration/application-roles.properties
 RUN chmod +x $JBOSS_HOME/bin/start_jbpm-wb.sh
 
+USER root
+RUN mkdir -p $JBOSS_HOME/mygit
+RUN chown jboss:jboss $JBOSS_HOME/mygit
+
 # Switchback to jboss user
 USER jboss
 RUN $JBOSS_HOME/bin/jboss-cli.sh --file=$JBOSS_HOME/bin/jbpm-custom.cli && \
