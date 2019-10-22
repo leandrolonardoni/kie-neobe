@@ -36,6 +36,7 @@
         <extension module="org.wildfly.extension.security.manager"/>
         <extension module="org.wildfly.extension.undertow"/>
         <extension module="org.wildfly.iiop-openjdk"/>
+		<extension module="org.keycloak.keycloak-adapter-subsystem"/>
     </extensions>
     <management>
         <security-realms>
@@ -331,6 +332,20 @@
         <subsystem xmlns="urn:jboss:domain:resource-adapters:4.0"/>
         <subsystem xmlns="urn:jboss:domain:request-controller:1.0"/>
         <subsystem xmlns="urn:jboss:domain:sar:1.0"/>	
+		<subsystem xmlns="urn:jboss:domain:keycloak:1.1">
+			<realm name="REALM_NAME">
+				<auth-server-url>AUTH_SERVER_URL</auth-server-url>
+				<ssl-required>none</ssl-required>
+				<realm-public-key>REALM_PUBLIC_KEY</realm-public-key>
+			</realm>
+		    <secure-deployment name="business-central.war">
+			  <realm>REALM_NAME</realm>
+			  <resource>business-central</resource>
+			  <enable-basic-auth>true</enable-basic-auth>
+			  <credential name="secret">SECRET_CREDENCIAL</credential>
+			  <principal-attribute>preferred_username</principal-attribute>
+		    </secure-deployment>	  
+		</subsystem>			
         <subsystem xmlns="urn:jboss:domain:security-manager:1.0">
             <deployment-permissions>
                 <maximum-set>
@@ -358,7 +373,12 @@
                     <authorization>
                         <policy-module code="Delegating" flag="required"/>
                     </authorization>
-                </security-domain>			
+                </security-domain>		
+                <security-domain name="keycloak">
+                    <authentication>
+                        <login-module code="org.keycloak.adapters.jboss.KeycloakLoginModule" flag="required"/>
+                    </authentication>
+                </security-domain>				
                 <security-domain name="jaspitest" cache-type="default">
                     <authentication-jaspi>
                         <login-module-stack name="dummy">
