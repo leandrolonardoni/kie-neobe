@@ -18,6 +18,7 @@ ENV EXTRA_OPTS -Dorg.jbpm.ht.admin.group=admin -Dorg.uberfire.nio.git.ssh.host=$
 ####### jBPM Workbench CUSTOM CONFIGURATION ############
 ADD etc/application-users.properties $JBOSS_HOME/standalone/configuration/application-users.properties
 ADD etc/application-roles.properties $JBOSS_HOME/standalone/configuration/application-roles.properties
+ADD etc/domain/host.xml $JBOSS_HOME/domain/configuration/host.xml
 ADD etc/jbpm-custom.cli $JBOSS_HOME/bin/jbpm-custom.cli
 
 # Added files are chowned to root user, change it to the jboss one.
@@ -26,7 +27,8 @@ ADD etc/start_jbpm-wb.sh $JBOSS_HOME/bin/start_jbpm-wb.sh
 COPY etc/add-ons/ $JBOSS_HOME/modules/system/add-ons/
 RUN chown jboss:jboss $JBOSS_HOME/bin/start_jbpm-wb.sh
 RUN chown jboss:jboss $JBOSS_HOME/standalone/configuration/application-users.properties && \
-chown jboss:jboss $JBOSS_HOME/standalone/configuration/application-roles.properties
+chown jboss:jboss $JBOSS_HOME/standalone/configuration/application-roles.properties && \
+chown jboss:jboss $JBOSS_HOME/domain/configuration/host.xml
 RUN chmod +x $JBOSS_HOME/bin/start_jbpm-wb.sh
 RUN chmod +x $JBOSS_HOME/bin/add-user.sh
 RUN $JBOSS_HOME/bin/add-user.sh admin admin --silent
