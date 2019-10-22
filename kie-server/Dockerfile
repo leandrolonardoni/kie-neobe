@@ -31,6 +31,7 @@ ADD etc/domain/application-users.properties $JBOSS_HOME/domain/configuration/app
 ADD etc/domain/application-roles.properties $JBOSS_HOME/domain/configuration/application-roles.properties
 ADD etc/domain/mgmt-users.properties $JBOSS_HOME/domain/configuration/mgmt-users.properties
 ADD etc/domain/mgmt-groups.properties $JBOSS_HOME/domain/configuration/mgmt-groups.properties
+ADD etc/domain/host.xml $JBOSS_HOME/domain/configuration/host.xml
 ADD etc/start_kie-server.sh $JBOSS_HOME/bin/start_kie-server.sh
 ADD etc/update_db_config.sh $JBOSS_HOME/bin/update_db_config.sh
 ADD etc/jbpm-postgres-config.cli $JBOSS_HOME/bin/jbpm-postgres-config.cli
@@ -48,6 +49,7 @@ chown jboss:jboss $JBOSS_HOME/domain/configuration/application-users.properties 
 chown jboss:jboss $JBOSS_HOME/domain/configuration/application-roles.properties && \
 chown jboss:jboss $JBOSS_HOME/domain/configuration/mgmt-users.properties && \
 chown jboss:jboss $JBOSS_HOME/domain/configuration/mgmt-groups.properties && \
+chown jboss:jboss $JBOSS_HOME/domain/configuration/host.xml && \
 chown jboss:jboss $JBOSS_HOME/bin/update_db_config.sh && \
 chown jboss:jboss $JBOSS_HOME/bin/start_kie-server.sh && \
 chown jboss:jboss $JBOSS_HOME/../.m2/settings.xml
