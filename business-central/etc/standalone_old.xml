@@ -44,7 +44,6 @@
         <property name="designerdataobjects" value="${designerdataobjects:false}"/>
         <property name="org.uberfire.nio.git.ssh.host" value="0.0.0.0"/>
         <property name="appformer.experimental.features" value="true"/>
-        <property name="org.uberfire.nio.git.dir" value="/opt/jboss/wildfly/mygit"/>
     </system-properties>
     <management>
         <security-realms>
@@ -434,7 +433,7 @@
 			  <credential name="secret">SECRET_CREDENCIAL</credential>
 			  <principal-attribute>preferred_username</principal-attribute>
 		    </secure-deployment>	  
-		</subsystem>		
+		</subsystem>			
         <subsystem xmlns="urn:jboss:domain:security:2.0">
             <security-domains>
                 <security-domain name="other" cache-type="default">
@@ -470,7 +469,7 @@
                     <authentication>
                         <login-module code="org.keycloak.adapters.jboss.KeycloakLoginModule" flag="required"/>
                     </authentication>
-                </security-domain>				
+                </security-domain>					
             </security-domains>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:security-manager:1.0">
@@ -539,4 +538,3 @@
             <remote-destination host="localhost" port="25"/>
         </outbound-socket-binding>
     </socket-binding-group>
-</server>

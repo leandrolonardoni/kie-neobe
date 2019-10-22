@@ -41,8 +41,7 @@ RUN chown jboss:jboss $JBOSS_HOME/mygit
 
 # Switchback to jboss user
 USER jboss
-RUN $JBOSS_HOME/bin/jboss-cli.sh --file=$JBOSS_HOME/bin/jbpm-custom.cli && \
-rm -rf $JBOSS_HOME/standalone/configuration/standalone_xml_history/current
+RUN $JBOSS_HOME/bin/jboss-cli.sh --file=$JBOSS_HOME/bin/jbpm-custom.cli 
 
 ####### RUNNING JBPM-WB ############
 WORKDIR $JBOSS_HOME/bin/
