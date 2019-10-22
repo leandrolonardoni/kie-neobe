@@ -27,6 +27,8 @@ RUN mkdir -p $HOME/.m2
 ADD etc/standalone.xml $JBOSS_HOME/standalone/configuration/standalone.xml
 ADD etc/kie-server-users.properties $JBOSS_HOME/standalone/configuration/kie-server-users.properties
 ADD etc/kie-server-roles.properties $JBOSS_HOME/standalone/configuration/kie-server-roles.properties
+ADD etc/domain/application-users.properties $JBOSS_HOME/domain/configuration/application-users.properties
+ADD etc/domain/application-roles.properties $JBOSS_HOME/domain/configuration/application-roles.properties
 ADD etc/start_kie-server.sh $JBOSS_HOME/bin/start_kie-server.sh
 ADD etc/update_db_config.sh $JBOSS_HOME/bin/update_db_config.sh
 ADD etc/jbpm-postgres-config.cli $JBOSS_HOME/bin/jbpm-postgres-config.cli
@@ -40,6 +42,8 @@ USER root
 RUN chown jboss:jboss $JBOSS_HOME/standalone/configuration/standalone.xml && \
 chown jboss:jboss $JBOSS_HOME/standalone/configuration/kie-server-users.properties && \
 chown jboss:jboss $JBOSS_HOME/standalone/configuration/kie-server-roles.properties && \
+chown jboss:jboss $JBOSS_HOME/domain/configuration/application-users.properties && \
+chown jboss:jboss $JBOSS_HOME/domain/configuration/application-roles.properties && \
 chown jboss:jboss $JBOSS_HOME/bin/update_db_config.sh && \
 chown jboss:jboss $JBOSS_HOME/bin/start_kie-server.sh && \
 chown jboss:jboss $JBOSS_HOME/../.m2/settings.xml
