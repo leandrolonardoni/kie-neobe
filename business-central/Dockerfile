@@ -28,6 +28,8 @@ RUN chown jboss:jboss $JBOSS_HOME/bin/start_jbpm-wb.sh
 RUN chown jboss:jboss $JBOSS_HOME/standalone/configuration/application-users.properties && \
 chown jboss:jboss $JBOSS_HOME/standalone/configuration/application-roles.properties
 RUN chmod +x $JBOSS_HOME/bin/start_jbpm-wb.sh
+RUN chmod +x $JBOSS_HOME/bin/add-user.sh
+RUN $JBOSS_HOME/bin/add-user.sh admin admin --silent
 
 USER root
 RUN mkdir -p $JBOSS_HOME/mygit
