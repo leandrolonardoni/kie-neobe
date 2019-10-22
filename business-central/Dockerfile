@@ -30,7 +30,7 @@ RUN chown jboss:jboss $JBOSS_HOME/bin/start_jbpm-wb.sh
 RUN chown jboss:jboss $JBOSS_HOME/standalone/configuration/application-users.properties && \
 chown jboss:jboss $JBOSS_HOME/standalone/configuration/application-roles.properties && \
 chown jboss:jboss $JBOSS_HOME/domain/configuration/host.xml && \
-chown jboss:jboss $JBOSS_HOME/standalone/configuration/standalone.xml && \
+chown jboss:jboss $JBOSS_HOME/standalone/configuration/standalone.xml
 RUN chmod +x $JBOSS_HOME/bin/start_jbpm-wb.sh
 RUN chmod +x $JBOSS_HOME/bin/add-user.sh
 RUN $JBOSS_HOME/bin/add-user.sh admin admin --silent
