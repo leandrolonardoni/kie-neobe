@@ -37,15 +37,6 @@
         <extension module="org.wildfly.extension.undertow"/>
 		<extension module="org.keycloak.keycloak-adapter-subsystem"/>
     </extensions>
-    <system-properties>
-        <property name="org.kie.server.id" value="${org.kie.demo:true}"/>
-        <property name="org.kie.example" value="${org.kie.example:true}"/>
-        <property name="org.jbpm.designer.perspective" value="${org.jbpm.designer.perspective:full}"/>
-        <property name="designerdataobjects" value="${designerdataobjects:false}"/>
-        <property name="org.uberfire.nio.git.ssh.host" value="0.0.0.0"/>
-        <property name="appformer.experimental.features" value="true"/>
-        <property name="org.uberfire.nio.git.dir" value="/opt/jboss/wildfly/mygit"/>
-    </system-properties>
     <management>
         <security-realms>
             <security-realm name="ManagementRealm">
