@@ -412,20 +412,7 @@
         <subsystem xmlns="urn:jboss:domain:request-controller:1.0"/>
         <subsystem xmlns="urn:jboss:domain:resource-adapters:5.0"/>
         <subsystem xmlns="urn:jboss:domain:sar:1.0"/>
-		<subsystem xmlns="urn:jboss:domain:keycloak:1.1">
-			<realm name="neobe">
-				<auth-server-url>http://40.122.169.182:80/auth</auth-server-url>
-				<ssl-required>none</ssl-required>
-				<realm-public-key>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAqbey3s4slIy09eGWqHl5WbOBlPOusgsDhIR3Ts4k7h8tJNIpFEGWk3qbfRtEUAQ3iDfgWpTgGC6sgZTEVIFpd8HACDjPv9rHmSigS7A7mP9d1NePYHGpNU1g4K4KynBdXMr/BppXcagcWlpNr0UbgG7WXPdBJWx+w3RaNWEaICkz0PlE5k3MSBrU7o6+ZptHwSJqg9rEp0imGANThqxhJYGl773E+rXEOBpHDWK16/jAXnE613VOV7ET521pHjfkdT/sWB5pVtygqcIAMG71zpE6ZR5pw7XtbKujRNtXE+Qf1YfX4fDOxxPvmiI1Cm28GO3ADu6aovfU4IU12tdv/wIDAQAB</realm-public-key>
-			</realm>
-		    <secure-deployment name="business-central.war">
-			  <realm>neobe</realm>
-			  <resource>business-central</resource>
-			  <enable-basic-auth>true</enable-basic-auth>
-			  <credential name="secret">75a35939-0b89-4022-a7d1-fd35717325ff</credential>
-			  <principal-attribute>preferred_username</principal-attribute>
-		    </secure-deployment>	  
-		</subsystem>		
+		<subsystem xmlns="urn:jboss:domain:keycloak:1.1"/>
         <subsystem xmlns="urn:jboss:domain:security:2.0">
             <security-domains>
                 <security-domain name="other" cache-type="default">
