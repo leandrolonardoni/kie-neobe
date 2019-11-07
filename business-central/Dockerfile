@@ -23,10 +23,16 @@ ADD etc/jbpm-custom.cli $JBOSS_HOME/bin/jbpm-custom.cli
 # Added files are chowned to root user, change it to the jboss one.
 USER root
 ADD etc/start_jbpm-wb.sh $JBOSS_HOME/bin/start_jbpm-wb.sh
-COPY etc/add-ons/ $JBOSS_HOME/modules/system/add-ons/
+# COPY etc/add-ons/ $JBOSS_HOME/modules/system/add-ons/
 RUN chown jboss:jboss $JBOSS_HOME/bin/start_jbpm-wb.sh
 RUN chown jboss:jboss $JBOSS_HOME/standalone/configuration/application-users.properties && \
 chown jboss:jboss $JBOSS_HOME/standalone/configuration/application-roles.properties
+
+# Keycloak adapter
+WORKDIR $JBOSS_HOME/
+COPY keycloak-wf8-adapter-dist-1.9.0.Final.zip keycloak-wf8-adapter-dist.zip
+RUN unzip keycloak-wf8-adapter-dist.zip
+#WORKDIR $JBOSS_HOME/bin/
 
 # Switchback to jboss user
 USER jboss
