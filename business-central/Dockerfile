@@ -22,12 +22,17 @@ ADD etc/application-roles.properties $JBOSS_HOME/standalone/configuration/applic
 ADD etc/domain/host.xml $JBOSS_HOME/domain/configuration/host.xml
 ADD etc/jbpm-custom.cli $JBOSS_HOME/bin/jbpm-custom.cli
 
+# Adapter do Keycloak #
+#COPY etc/add-ons/ $JBOSS_HOME/modules/system/add-ons/
+WORKDIR $JBOSS_HOME
+COPY etc/keycloak-wildfly-adapter-dist-7.0.0-jboss.zip keycloak-wildfly-adapter-dist.zip
+RUN unzip keycloak-wildfly-adapter-dist.zip
+RUN rm keycloak-wildfly-adapter-dist.zip
+
 # Added files are chowned to root user, change it to the jboss one.
 USER root
-RUN chown jboss:jboss $JBOSS_HOME/standalone/configuration/application-users.properties && \
-chown jboss:jboss $JBOSS_HOME/standalone/configuration/application-roles.properties && \
-chown jboss:jboss $JBOSS_HOME/domain/configuration/host.xml && \
-chown jboss:jboss $JBOSS_HOME/standalone/configuration/standalone.xml
+RUN chown jboss:jboss $JBOSS_HOME/domain/configuration/host.xml
+RUN chown jboss:jboss $JBOSS_HOME/standalone/configuration/standalone.xml
 RUN chmod +x $JBOSS_HOME/bin/add-user.sh
 RUN $JBOSS_HOME/bin/add-user.sh admin admin --silent
 
@@ -36,8 +41,8 @@ RUN chown jboss:jboss $JBOSS_HOME/mygit
 
 # Switchback to jboss user
 USER jboss
-RUN $JBOSS_HOME/bin/jboss-cli.sh --file=$JBOSS_HOME/bin/jbpm-custom.cli && \
-rm -rf $JBOSS_HOME/standalone/configuration/standalone_xml_history/current
+#RUN $JBOSS_HOME/bin/jboss-cli.sh --file=$JBOSS_HOME/bin/jbpm-custom.cli && \
+#rm -rf $JBOSS_HOME/standalone/configuration/standalone_xml_history/current
 
 ####### RUNNING JBPM-WB ############
 WORKDIR $JBOSS_HOME/bin/
