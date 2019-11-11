@@ -22,7 +22,6 @@
         <extension module="org.jboss.as.transactions"/>
         <extension module="org.jboss.as.webservices"/>
         <extension module="org.jboss.as.weld"/>
-        <extension module="org.keycloak.keycloak-adapter-subsystem"/>
         <extension module="org.wildfly.extension.batch.jberet"/>
         <extension module="org.wildfly.extension.bean-validation"/>
         <extension module="org.wildfly.extension.core-management"/>
@@ -395,10 +394,8 @@
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:jsf:1.1"/>
         <subsystem xmlns="urn:jboss:domain:mail:3.0">
-            <mail-session name="default" jndi-name="java:jboss/mail/Default" from="mvp.regulacao@gmail.com.br">
-                <smtp-server outbound-socket-binding-ref="mail-smtp" tsl="true">
-					<login name="mvp.regulacao" password="1q2w#E4r"/>
-				</smtp-server>
+            <mail-session name="default" jndi-name="java:jboss/mail/Default">
+                <smtp-server outbound-socket-binding-ref="mail-smtp"/>
             </mail-session>
         </subsystem>
         <subsystem xmlns="urn:wildfly:microprofile-config-smallrye:1.0"/>
@@ -444,11 +441,6 @@
                         <policy-module code="Delegating" flag="required"/>
                     </authorization>
                 </security-domain>
-                <security-domain name="keycloak">
-                    <authentication>
-                        <login-module code="org.keycloak.adapters.jboss.KeycloakLoginModule" flag="required"/>
-                    </authentication>
-                </security-domain>	                
             </security-domains>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:security-manager:1.0">
@@ -486,7 +478,7 @@
             </handlers>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:webservices:2.0">
-            <wsdl-host>${jboss.bind.address:0.0.0.0}</wsdl-host>
+            <wsdl-host>${jboss.bind.address:127.0.0.1}</wsdl-host>
             <endpoint-config name="Standard-Endpoint-Config"/>
             <endpoint-config name="Recording-Endpoint-Config">
                 <pre-handler-chain name="recording-handlers" protocol-bindings="##SOAP11_HTTP ##SOAP11_HTTP_MTOM ##SOAP12_HTTP ##SOAP12_HTTP_MTOM">
@@ -496,32 +488,13 @@
             <client-config name="Standard-Client-Config"/>
         </subsystem>
         <subsystem xmlns="urn:jboss:domain:weld:4.0"/>
-        <subsystem xmlns="urn:jboss:domain:keycloak:1.1">
-            <realm name="neobe-des">
-                <realm-public-key>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhPEACZmJ0ZIHnkOPpmUP8DqsLTJtIBt689eR6e4MfPJxP68YMJrNIXslyC5pOeCThpt306U9nKP/XPTOgFCV2Ct+JVeK8qnJqhbWbUcv+eQoonYjMsrhynmJSWuu4foZoobQ6tGCDp60Jqa1KdZ6OxbDT8lWCowbqlSd53PZmuhpoO/OgfuN2gyh9aKFmKiZg9WS448Xd15xBmWlF+UwlqSgXjz+qThNJhfdTvFTpoA53sSLchy5QDPLIy2UGpUCCKDDoqnPaaPPZF3PwkqVr5IXb6QYv3VS2AzwhF/6skejTLl9Pt3qpfx5b5Nd8CKPnSPNjNAVzwvAzderx3Sg5QIDAQAB&lt;/realm-public-key</realm-public-key>
-                <auth-server-url>http://40.86.83.94/auth</auth-server-url>
-                <ssl-required>none</ssl-required>
-                <allow-any-hostname>true</allow-any-hostname>
-                <principal-attribute>preferred_username</principal-attribute>
-            </realm>
-            <secure-deployment name="business-central.war">
-                <realm>neobe-des</realm>
-                <resource>bpm</resource>
-                <enable-basic-auth>true</enable-basic-auth>
-                <realm-public-key>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhPEACZmJ0ZIHnkOPpmUP8DqsLTJtIBt689eR6e4MfPJxP68YMJrNIXslyC5pOeCThpt306U9nKP/XPTOgFCV2Ct+JVeK8qnJqhbWbUcv+eQoonYjMsrhynmJSWuu4foZoobQ6tGCDp60Jqa1KdZ6OxbDT8lWCowbqlSd53PZmuhpoO/OgfuN2gyh9aKFmKiZg9WS448Xd15xBmWlF+UwlqSgXjz+qThNJhfdTvFTpoA53sSLchy5QDPLIy2UGpUCCKDDoqnPaaPPZF3PwkqVr5IXb6QYv3VS2AzwhF/6skejTLl9Pt3qpfx5b5Nd8CKPnSPNjNAVzwvAzderx3Sg5QIDAQAB</realm-public-key>
-                <auth-server-url>http://40.86.83.94/auth</auth-server-url>
-                <ssl-required>none</ssl-required>
-                <principal-attribute>preferred_username</principal-attribute>
-                <credential name="secret">bd703364-b047-4712-985a-18a7b9fc3683</credential>
-            </secure-deployment>
-        </subsystem>	
     </profile>
     <interfaces>
         <interface name="management">
-            <inet-address value="${jboss.bind.address.management:0.0.0.0}"/>
+            <inet-address value="${jboss.bind.address.management:127.0.0.1}"/>
         </interface>
         <interface name="public">
-            <inet-address value="${jboss.bind.address:0.0.0.0}"/>
+            <inet-address value="${jboss.bind.address:127.0.0.1}"/>
         </interface>
     </interfaces>
     <socket-binding-group name="standard-sockets" default-interface="public" port-offset="${jboss.socket.binding.port-offset:0}">
