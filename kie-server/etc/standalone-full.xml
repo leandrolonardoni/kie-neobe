@@ -544,7 +544,7 @@
                 <allow-any-hostname>true</allow-any-hostname>
                 <principal-attribute>preferred_username</principal-attribute>
             </realm>
-            <secure-deployment name="business-central.war">
+            <secure-deployment name="kie-server.war">
                 <realm>neobe-des</realm>
                 <resource>kie-server</resource>
                 <enable-basic-auth>true</enable-basic-auth>
