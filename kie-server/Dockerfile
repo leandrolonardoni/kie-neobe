@@ -25,6 +25,7 @@ ENV JAVA_OPTS -Xms256m -Xmx1024m -Djava.net.preferIPv4Stack=true -Dfile.encoding
 ####### Drools KIE Server CUSTOM CONFIGURATION ############
 RUN mkdir -p $HOME/.m2
 ADD etc/standalone.xml $JBOSS_HOME/standalone/configuration/standalone.xml
+ADD etc/standalone-full.xml $JBOSS_HOME/standalone/configuration/standalone-full.xml
 ADD etc/kie-server-users.properties $JBOSS_HOME/standalone/configuration/kie-server-users.properties
 ADD etc/kie-server-roles.properties $JBOSS_HOME/standalone/configuration/kie-server-roles.properties
 ADD etc/domain/host.xml $JBOSS_HOME/domain/configuration/host.xml
@@ -39,6 +40,7 @@ COPY etc/drivers/ $JBOSS_HOME/bin/drivers/
 # Added files are chowned to root user, change it to the jboss one.
 USER root
 RUN chown jboss:jboss $JBOSS_HOME/standalone/configuration/standalone.xml && \
+chown jboss:jboss $JBOSS_HOME/standalone/configuration/standalone-full.xml && \
 chown jboss:jboss $JBOSS_HOME/standalone/configuration/kie-server-users.properties && \
 chown jboss:jboss $JBOSS_HOME/standalone/configuration/kie-server-roles.properties && \
 chown jboss:jboss $JBOSS_HOME/domain/configuration/host.xml && \
