@@ -22,8 +22,8 @@ ADD etc/business-central.war/keycloak-common-7.0.0.jar $JBOSS_HOME/standalone/de
 ADD etc/business-central.war/keycloak-core-7.0.0.jar $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/lib/keycloak-core-7.0.0.jar
 ADD etc/business-central.war/security-management.properties $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/classes/security-management.properties
 ADD etc/business-central.war/jboss-deployment-structure.xml $JBOSS_HOME/standalone/deployments/business-central.war/META-INF/jboss-deployment-structure.xml
-RUN rm $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/lib/uberfire-security-management-api-2.20.0.Final.jar
-RUN rm $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/lib/uberfire-security-management-backend-2.20.0.Final.jar
+# RUN rm $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/lib/uberfire-security-management-api-2.20.0.Final.jar
+# RUN rm $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/lib/uberfire-security-management-backend-2.20.0.Final.jar
 RUN rm $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/lib/uberfire-security-management-wildfly-2.20.0.Final.jar
 ADD etc/application-users.properties $JBOSS_HOME/standalone/configuration/application-users.properties
 ADD etc/application-roles.properties $JBOSS_HOME/standalone/configuration/application-roles.properties
