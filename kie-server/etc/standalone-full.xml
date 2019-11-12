@@ -546,13 +546,13 @@
             </realm>
             <secure-deployment name="kie-server.war">
                 <realm>neobe-des</realm>
-                <resource>kie-server</resource>
+                <resource>bpm</resource>
                 <enable-basic-auth>true</enable-basic-auth>
                 <realm-public-key>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhPEACZmJ0ZIHnkOPpmUP8DqsLTJtIBt689eR6e4MfPJxP68YMJrNIXslyC5pOeCThpt306U9nKP/XPTOgFCV2Ct+JVeK8qnJqhbWbUcv+eQoonYjMsrhynmJSWuu4foZoobQ6tGCDp60Jqa1KdZ6OxbDT8lWCowbqlSd53PZmuhpoO/OgfuN2gyh9aKFmKiZg9WS448Xd15xBmWlF+UwlqSgXjz+qThNJhfdTvFTpoA53sSLchy5QDPLIy2UGpUCCKDDoqnPaaPPZF3PwkqVr5IXb6QYv3VS2AzwhF/6skejTLl9Pt3qpfx5b5Nd8CKPnSPNjNAVzwvAzderx3Sg5QIDAQAB</realm-public-key>
                 <auth-server-url>http://40.86.83.94/auth</auth-server-url>
                 <ssl-required>none</ssl-required>
                 <principal-attribute>preferred_username</principal-attribute>
-                <credential name="secret">ab60f3ea-f1ec-4380-9c48-b08b3f3a2039</credential>
+                <credential name="secret">bd703364-b047-4712-985a-18a7b9fc3683</credential>
             </secure-deployment>
         </subsystem>	
     </profile>
