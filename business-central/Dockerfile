@@ -24,7 +24,7 @@ ADD etc/business-central.war/security-management.properties $JBOSS_HOME/standalo
 ADD etc/business-central.war/jboss-deployment-structure.xml $JBOSS_HOME/standalone/deployments/business-central.war/META-INF/jboss-deployment-structure.xml
 # RUN rm $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/lib/uberfire-security-management-api-2.20.0.Final.jar
 # RUN rm $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/lib/uberfire-security-management-backend-2.20.0.Final.jar
-RUN rm $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/lib/uberfire-security-management-wildfly-2.20.0.Final.jar
+# RUN rm $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/lib/uberfire-security-management-wildfly-2.20.0.Final.jar
 ADD etc/application-users.properties $JBOSS_HOME/standalone/configuration/application-users.properties
 ADD etc/application-roles.properties $JBOSS_HOME/standalone/configuration/application-roles.properties
 ADD etc/domain/host.xml $JBOSS_HOME/domain/configuration/host.xml
