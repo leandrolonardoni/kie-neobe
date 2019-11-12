@@ -1,0 +1,8 @@
+{
+  "realm": "neobe-des",
+  "auth-server-url": "http://40.86.83.94/auth",
+  "ssl-required": "none",
+  "resource": "kie-git",
+  "public-client": true,
+  "confidential-port": 0
+}

@@ -435,13 +435,10 @@
             <security-domains>
                 <security-domain name="other" cache-type="default">
                     <authentication>
-                        <login-module code="Remoting" flag="optional">
-                            <module-option name="password-stacking" value="useFirstPass"/>
+                        <login-module code="org.keycloak.adapters.jaas.DirectAccessGrantsLoginModule" flag="required">
+                            <!-- Parameter value can be a file system absolute path or a classpath (e.g. "classpath:/some-path/kie-git.json")-->
+                            <module-option name="keycloak-config-file" value="$JBPM_HOME/kie-git.json"/>
                         </login-module>
-                        <login-module code="RealmDirect" flag="required">
-                            <module-option name="password-stacking" value="useFirstPass"/>
-                        </login-module>
-                        <login-module code="org.kie.security.jaas.KieLoginModule" flag="required" module="deployment.business-central.war"/>
                     </authentication>
                 </security-domain>
                 <security-domain name="jboss-web-policy" cache-type="default">
