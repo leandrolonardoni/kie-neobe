@@ -1,1 +1,2 @@
 https://docs.jboss.org/jbpm/release/7.23.0.Final/jbpm-docs/html_single/#_kie.keycloakssointegration
+https://github.com/kiegroup/appformer/blob/master/uberfire-extensions/uberfire-security/uberfire-security-management/uberfire-security-management-keycloak/README.md

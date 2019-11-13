@@ -18,13 +18,10 @@ ENV EXTRA_OPTS -Dorg.jbpm.ht.admin.group=admin -Dorg.uberfire.nio.git.ssh.host=$
 ####### jBPM Workbench CUSTOM CONFIGURATION ############
 ADD etc/standalone.xml $JBOSS_HOME/standalone/configuration/standalone.xml
 #ADD etc/business-central.war/web.xml $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/web.xml
-ADD etc/business-central.war/keycloak-common-7.0.0.jar $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/lib/keycloak-common-7.0.0.jar
-ADD etc/business-central.war/keycloak-core-7.0.0.jar $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/lib/keycloak-core-7.0.0.jar
+COPY etc/business-central.war/uberfire-security-management-keycloak-jar_files/* $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/lib
 ADD etc/business-central.war/security-management.properties $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/classes/security-management.properties
 ADD etc/business-central.war/jboss-deployment-structure.xml $JBOSS_HOME/standalone/deployments/business-central.war/META-INF/jboss-deployment-structure.xml
-# RUN rm $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/lib/uberfire-security-management-api-2.20.0.Final.jar
-# RUN rm $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/lib/uberfire-security-management-backend-2.20.0.Final.jar
-# RUN rm $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/lib/uberfire-security-management-wildfly-2.20.0.Final.jar
+RUN rm $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/lib/uberfire-security-management-wildfly-2.20.0.Final.jar
 ADD etc/application-users.properties $JBOSS_HOME/standalone/configuration/application-users.properties
 ADD etc/application-roles.properties $JBOSS_HOME/standalone/configuration/application-roles.properties
 ADD etc/domain/host.xml $JBOSS_HOME/domain/configuration/host.xml
@@ -42,8 +39,6 @@ chown jboss:jboss $JBOSS_HOME/domain/configuration/host.xml && \
 chown jboss:jboss $JBOSS_HOME/standalone/configuration/standalone.xml && \
 chown jboss:jboss $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/web.xml && \
 chown jboss:jboss $JBOSS_HOME/kie-git.json && \
-chown jboss:jboss $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/lib/keycloak-common-7.0.0.jar && \
-chown jboss:jboss $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/lib/keycloak-core-7.0.0.jar && \
 chown jboss:jboss $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/classes/security-management.properties && \
 chown jboss:jboss $JBOSS_HOME/standalone/deployments/business-central.war/META-INF/jboss-deployment-structure.xml
 
