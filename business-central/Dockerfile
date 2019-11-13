@@ -17,7 +17,7 @@ ENV EXTRA_OPTS -Dorg.jbpm.ht.admin.group=admin -Dorg.uberfire.nio.git.ssh.host=$
 
 ####### jBPM Workbench CUSTOM CONFIGURATION ############
 ADD etc/standalone.xml $JBOSS_HOME/standalone/configuration/standalone.xml
-ADD etc/business-central.war/web.xml $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/web.xml
+#ADD etc/business-central.war/web.xml $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/web.xml
 ADD etc/business-central.war/keycloak-common-7.0.0.jar $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/lib/keycloak-common-7.0.0.jar
 ADD etc/business-central.war/keycloak-core-7.0.0.jar $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/lib/keycloak-core-7.0.0.jar
 ADD etc/business-central.war/security-management.properties $JBOSS_HOME/standalone/deployments/business-central.war/WEB-INF/classes/security-management.properties
