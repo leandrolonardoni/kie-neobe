@@ -496,7 +496,7 @@
         <subsystem xmlns="urn:jboss:domain:weld:4.0"/>
         <subsystem xmlns="urn:jboss:domain:keycloak:1.1">
             <realm name="neobe-des">
-                <realm-public-key>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhPEACZmJ0ZIHnkOPpmUP8DqsLTJtIBt689eR6e4MfPJxP68YMJrNIXslyC5pOeCThpt306U9nKP/XPTOgFCV2Ct+JVeK8qnJqhbWbUcv+eQoonYjMsrhynmJSWuu4foZoobQ6tGCDp60Jqa1KdZ6OxbDT8lWCowbqlSd53PZmuhpoO/OgfuN2gyh9aKFmKiZg9WS448Xd15xBmWlF+UwlqSgXjz+qThNJhfdTvFTpoA53sSLchy5QDPLIy2UGpUCCKDDoqnPaaPPZF3PwkqVr5IXb6QYv3VS2AzwhF/6skejTLl9Pt3qpfx5b5Nd8CKPnSPNjNAVzwvAzderx3Sg5QIDAQAB&lt;/realm-public-key</realm-public-key>
+                <realm-public-key>MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAhPEACZmJ0ZIHnkOPpmUP8DqsLTJtIBt689eR6e4MfPJxP68YMJrNIXslyC5pOeCThpt306U9nKP/XPTOgFCV2Ct+JVeK8qnJqhbWbUcv+eQoonYjMsrhynmJSWuu4foZoobQ6tGCDp60Jqa1KdZ6OxbDT8lWCowbqlSd53PZmuhpoO/OgfuN2gyh9aKFmKiZg9WS448Xd15xBmWlF+UwlqSgXjz+qThNJhfdTvFTpoA53sSLchy5QDPLIy2UGpUCCKDDoqnPaaPPZF3PwkqVr5IXb6QYv3VS2AzwhF/6skejTLl9Pt3qpfx5b5Nd8CKPnSPNjNAVzwvAzderx3Sg5QIDAQAB</realm-public-key>
                 <auth-server-url>http://40.86.83.94/auth</auth-server-url>
                 <ssl-required>none</ssl-required>
                 <allow-any-hostname>true</allow-any-hostname>
@@ -511,6 +511,7 @@
                 <ssl-required>none</ssl-required>
                 <principal-attribute>preferred_username</principal-attribute>
                 <credential name="secret">bd703364-b047-4712-985a-18a7b9fc3683</credential>
+                <use-resource-role-mappings>true</use-resource-role-mappings>
             </secure-deployment>
         </subsystem>	
     </profile>
